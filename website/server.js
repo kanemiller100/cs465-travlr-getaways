@@ -1,18 +1,28 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
+const hbs = require('hbs');
+
+const travelRouter = require('./app_server/routes/travel');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Serve static files from /public
-app.use(express.static(path.join(__dirname, "public")));
+// View engine setup (HBS)
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, 'app_server', 'views', 'partials'));
 
-// Simple test route (good for “input/output” proof)
-app.get("/health", (req, res) => {
-  res.status(200).send("OK");
+// Static assets
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.use('/travel', travelRouter);
+
+// Home route (simple)
+app.get('/', (req, res) => {
+  res.redirect('/travel');
 });
 
-app.listen(PORT, () => {
-  console.log(`Express server running at http://localhost:${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
-

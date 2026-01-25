@@ -1,0 +1,27 @@
+{{> navigation}}
+
+<header>
+  <h1>{{pageHeader.title}}</h1>
+  <p>{{pageHeader.strapline}}</p>
+</header>
+
+<section>
+  <h2>Available Trips</h2>
+
+  {{#if trips.length}}
+    <ul>
+      {{#each trips}}
+        <li>
+          <h3>{{name}}</h3>
+          <p>{{description}}</p>
+          <p><strong>Duration:</strong> {{duration}}</p>
+          <p><strong>Price:</strong> {{price}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No trips available right now.</p>
+  {{/if}}
+</section>
+
+{{> footer}}
