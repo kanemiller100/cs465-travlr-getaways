@@ -144,3 +144,4 @@ vite.config.ts.timestamp-*
 # Ignore accidental root artifacts
 package-lock.json
 website.zip
+module2.zip
