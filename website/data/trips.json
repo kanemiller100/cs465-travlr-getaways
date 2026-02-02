@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Rome",
+    "length": "7 nights",
+    "start": "2026-06-01",
+    "resort": "Grand Roma",
+    "perPerson": "$1,999",
+    "image": "rome.jpg",
+    "description": "Rome — This description proves JSON is rendering."
+  },
+  {
+    "name": "Paris",
+    "length": "5 nights",
+    "start": "2026-07-10",
+    "resort": "Left Bank Suites",
+    "perPerson": "$1,799",
+    "image": "paris.jpg",
+    "description": "Paris — This description proves JSON is rendering."
+  }
+]
