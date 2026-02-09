@@ -1,5 +1,6 @@
 [
   {
+    "code": "ROME260601",
     "name": "Rome",
     "length": "7 nights",
     "start": "2026-06-01",
@@ -9,6 +10,7 @@
     "description": "Rome — This description proves JSON is rendering."
   },
   {
+    "code": "PARI260710",
     "name": "Paris",
     "length": "5 nights",
     "start": "2026-07-10",

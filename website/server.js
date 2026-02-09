@@ -2,7 +2,10 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 
+require('./app_server/models/db');
+
 const travelRouter = require('./app_server/routes/travel');
+const apiRouter = require('./app_server/routes/api');
 
 const app = express();
 
@@ -16,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/travel', travelRouter);
+app.use('/api', apiRouter);
 
 // Home route (simple)
 app.get('/', (req, res) => {
