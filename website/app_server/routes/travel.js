@@ -1,8 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const ctrlTraveler = require('../controllers/traveler');
+const ctrlTraveler = require("../controllers/traveler");
 
-router.get('/', ctrlTraveler.travel);
+// MVC travel page
+router.get("/travel", ctrlTraveler.travel);
 
 module.exports = router;
