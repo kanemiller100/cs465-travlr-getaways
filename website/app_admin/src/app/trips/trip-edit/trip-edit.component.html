@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Edit Trip' : 'Add Trip' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #tripForm="ngForm" class="mt-3">
+    <div class="mb-3">
+      <label class="form-label">Code</label>
+      <input class="form-control" name="code" [(ngModel)]="trip.code" [readonly]="isEditMode" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input class="form-control" name="name" [(ngModel)]="trip.name" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Length</label>
+      <input class="form-control" name="length" [(ngModel)]="trip.length" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Start</label>
+      <input class="form-control" name="start" [(ngModel)]="trip.start" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Resort</label>
+      <input class="form-control" name="resort" [(ngModel)]="trip.resort" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Per Person</label>
+      <input class="form-control" name="perPerson" [(ngModel)]="trip.perPerson" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input class="form-control" name="image" [(ngModel)]="trip.image">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" name="description" [(ngModel)]="trip.description" rows="4"></textarea>
+    </div>
+
+    <button class="btn btn-primary me-2" type="submit">
+      {{ isEditMode ? 'Update' : 'Add' }}
+    </button>
+    <a class="btn btn-secondary" routerLink="/trips">Cancel</a>
+  </form>
+</div>

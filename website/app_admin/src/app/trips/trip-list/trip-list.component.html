@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Trips Admin</h2>
+    <a class="btn btn-success" routerLink="/trips/add">Add Trip</a>
+  </div>
+
+  <app-trip-card
+    *ngFor="let trip of trips"
+    [trip]="trip"
+    (deleteTrip)="onDeleteTrip($event)">
+  </app-trip-card>
+</div>
