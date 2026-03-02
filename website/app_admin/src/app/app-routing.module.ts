@@ -6,9 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'trips', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'trips', component: TripListComponent },
+  { path: 'trips', component: TripListComponent, canActivate: [AuthGuard] },
   { path: 'trips/add', component: TripEditComponent, canActivate: [AuthGuard] },
   { path: 'trips/edit/:tripCode', component: TripEditComponent, canActivate: [AuthGuard] }
 ];
