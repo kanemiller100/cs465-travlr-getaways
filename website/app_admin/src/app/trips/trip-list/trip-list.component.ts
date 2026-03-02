@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from '../../models/trip';
 import { TripDataService } from '../../services/trip-data.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -11,7 +12,10 @@ import { TripDataService } from '../../services/trip-data.service';
 export class TripListComponent implements OnInit {
   trips: Trip[] = [];
 
-  constructor(private tripService: TripDataService) {}
+  constructor(
+    private tripService: TripDataService,
+    public authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.loadTrips();
@@ -25,6 +29,7 @@ export class TripListComponent implements OnInit {
   }
 
   onDeleteTrip(code: string): void {
+    if (!this.authService.isLoggedIn()) return;
     if (!confirm('Delete this trip?')) return;
 
     this.tripService.deleteTrip(code).subscribe({

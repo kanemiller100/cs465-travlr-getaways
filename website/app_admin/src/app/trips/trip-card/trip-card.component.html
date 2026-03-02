@@ -8,7 +8,9 @@
     <p class="mb-1"><strong>Per Person:</strong> {{ trip.perPerson }}</p>
     <p class="mb-2">{{ trip.description }}</p>
 
-    <a class="btn btn-primary btn-sm me-2" [routerLink]="['/trips/edit', trip.code]">Edit</a>
-    <button class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <a class="btn btn-primary btn-sm me-2" [routerLink]="['/trips/edit', trip.code]">Edit</a>
+      <button class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+    </ng-container>
   </div>
 </div>

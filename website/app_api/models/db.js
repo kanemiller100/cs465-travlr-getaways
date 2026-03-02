@@ -55,5 +55,6 @@ connect();
 
 // Load schemas/models
 require('./travlr');
+require('./users');
 
 module.exports = mongoose;

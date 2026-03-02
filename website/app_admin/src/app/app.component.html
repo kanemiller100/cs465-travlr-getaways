@@ -1,6 +1,24 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/trips">Travlr Admin</a>
+
+    <div class="d-flex gap-2">
+      <a
+        class="btn btn-outline-light"
+        routerLink="/login"
+        *ngIf="!authService.isLoggedIn()"
+      >
+        Login
+      </a>
+
+      <button
+        class="btn btn-outline-light"
+        *ngIf="authService.isLoggedIn()"
+        (click)="authService.logout()"
+      >
+        Logout
+      </button>
+    </div>
   </div>
 </nav>
 
